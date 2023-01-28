@@ -44,4 +44,9 @@ public class UserService {
         }
         return user;
     }
+
+    public boolean emailAlreadyExists(String email) {
+        return userRepository.findByEmail(email).isPresent();
+    }
+
 }
