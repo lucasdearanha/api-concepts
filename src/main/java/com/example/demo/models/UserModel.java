@@ -83,6 +83,11 @@ public class UserModel {
         return roles;
     }
 
+    public void addRole(Role role) {
+        if (role.getName().equals("ROLE_USER"))
+            this.roles.add(role);
+    }
+
     @Override
     public String toString() {
         return "User{" +
