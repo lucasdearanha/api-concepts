@@ -7,9 +7,8 @@ public class ValidationUtils {
     public static boolean isValidEmail(String email) {
         if (email == null)
             return false;
-        Pattern pattern = Pattern.compile("^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$");
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+        String regex = "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
+        return Pattern.compile(regex).matcher(email).matches();
     }
 
     public static boolean isValidName(String name, int minLength, int maxLength) {
@@ -22,8 +21,6 @@ public class ValidationUtils {
         if (password == null)
             return false;
         String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{" + minLength + "," + maxLength + "}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
+        return Pattern.compile(regex).matcher(password).matches();
     }
 }
