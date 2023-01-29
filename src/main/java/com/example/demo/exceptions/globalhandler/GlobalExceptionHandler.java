@@ -1,9 +1,6 @@
 package com.example.demo.exceptions.globalhandler;
 
-import com.example.demo.exceptions.DatabaseException;
-import com.example.demo.exceptions.NotFoundException;
-import com.example.demo.exceptions.TokenJwtExpiredOrIncorrectException;
-import com.example.demo.exceptions.UserOrPasswordInvalidException;
+import com.example.demo.exceptions.*;
 import com.example.demo.responsemodels.GenericResponseModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +46,15 @@ public class GlobalExceptionHandler {
     public ResponseEntity<GenericResponseModel> handleTokenJwtExpiredOrIncorrectException(
             TokenJwtExpiredOrIncorrectException e, HttpServletRequest request) {
 
+        error.setMessage(e.getMessage());
+        error.setData(request.getRequestURI());
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(PaginationLimitException.class)
+    public ResponseEntity<GenericResponseModel> handlePaginationLimitException(PaginationLimitException e,
+                                                                               HttpServletRequest request) {
         error.setMessage(e.getMessage());
         error.setData(request.getRequestURI());
 

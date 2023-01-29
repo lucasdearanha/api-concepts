@@ -56,4 +56,19 @@ public class UserController {
                 )
         );
     }
+
+    @GetMapping
+    public ResponseEntity<GenericResponseModel> getAll(
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "15", required = false) int pageSize
+    ) {
+
+        return ResponseEntity.ok(
+                new GenericResponseModel(
+                        true,
+                        "operacao relizada com sucesso",
+                        userService.getAll(pageNumber, pageSize)
+                )
+        );
+    }
 }
