@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.commands.CreateUserCommand;
+import com.example.demo.commands.UserLoginCommand;
 import com.example.demo.handlers.UserHandler;
 import com.example.demo.responsemodels.GenericResponseModel;
 import com.example.demo.responsemodels.UserResponseModel;
@@ -38,5 +39,10 @@ public class UserController {
         }
 
         return ResponseEntity.created(uri).body(user);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<GenericResponseModel> login(@RequestBody UserLoginCommand command) {
+        return ResponseEntity.ok(userHandler.execute(command));
     }
 }

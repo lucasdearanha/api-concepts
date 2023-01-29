@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.commands.CreateUserCommand;
 import com.example.demo.exceptions.DatabaseException;
 import com.example.demo.exceptions.NotFoundException;
+import com.example.demo.exceptions.UserOrPasswordInvalidException;
 import com.example.demo.models.Role;
 import com.example.demo.models.UserModel;
 import com.example.demo.repositories.RoleRepository;
@@ -49,4 +50,8 @@ public class UserService {
         return userRepository.findByEmail(email).isPresent();
     }
 
+    public UserModel findByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserOrPasswordInvalidException("Usuario ou senha invalidos"));
+    }
 }
