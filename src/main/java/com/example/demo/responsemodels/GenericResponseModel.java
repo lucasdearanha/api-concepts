@@ -1,4 +1,4 @@
-package com.example.demo.reponsemodels;
+package com.example.demo.responsemodels;
 
 public class GenericResponseModel {
     private boolean success;

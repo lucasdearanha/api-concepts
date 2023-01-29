@@ -2,8 +2,8 @@ package com.example.demo.controllers;
 
 import com.example.demo.commands.CreateUserCommand;
 import com.example.demo.handlers.UserHandler;
-import com.example.demo.reponsemodels.GenericResponseModel;
-import com.example.demo.reponsemodels.UserResponseModel;
+import com.example.demo.responsemodels.GenericResponseModel;
+import com.example.demo.responsemodels.UserResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

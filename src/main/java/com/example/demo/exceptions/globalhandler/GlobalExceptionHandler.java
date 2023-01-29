@@ -2,7 +2,7 @@ package com.example.demo.exceptions.globalhandler;
 
 import com.example.demo.exceptions.DatabaseException;
 import com.example.demo.exceptions.NotFoundException;
-import com.example.demo.reponsemodels.GenericResponseModel;
+import com.example.demo.responsemodels.GenericResponseModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

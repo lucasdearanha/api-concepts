@@ -2,8 +2,8 @@ package com.example.demo.handlers;
 
 import com.example.demo.commands.CreateUserCommand;
 import com.example.demo.models.UserModel;
-import com.example.demo.reponsemodels.GenericResponseModel;
-import com.example.demo.reponsemodels.UserResponseModel;
+import com.example.demo.responsemodels.GenericResponseModel;
+import com.example.demo.responsemodels.UserResponseModel;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
