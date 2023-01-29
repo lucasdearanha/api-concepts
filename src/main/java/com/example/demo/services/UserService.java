@@ -8,6 +8,7 @@ import com.example.demo.models.Role;
 import com.example.demo.models.UserModel;
 import com.example.demo.repositories.RoleRepository;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.responsemodels.UserResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -53,5 +54,20 @@ public class UserService {
     public UserModel findByEmail(String email) {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserOrPasswordInvalidException("Usuario ou senha invalidos"));
+    }
+
+    public UserResponseModel findById(long id) {
+        UserModel userModel = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Id nao encontrado"));
+        return userToUserResponseModel(userModel);
+    }
+
+    private UserResponseModel userToUserResponseModel(UserModel userModel) {
+        return new UserResponseModel(
+                userModel.getId(),
+                userModel.getFirstName(),
+                userModel.getLastName(),
+                userModel.getEmail()
+        );
     }
 }
